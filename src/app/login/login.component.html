@@ -1,0 +1,27 @@
+<div class="overall-login">
+
+    <form class="inputs-overall" #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput class="inputbox" name="email" ngModel required email #email="ngModel">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput type="password" class="inputbox" name="Password" ngModel required password #password="ngModel">
+          </mat-form-field>
+          <button mat-raised-button class="btn">Login</button>
+          <div class="loginend">
+            <p><a href="/forgot">forgotpassword</a></p>
+            <p> <a href="/register">click here to registered</a></p>
+           
+          </div>
+
+          @if ( email.touched&& email.invalid){
+            <p class="invalitedata">*Invalide Email Address Entered</p>
+         }
+         @if( password.touched && password.invalid){
+            <p class="invalitedata">*Invalide Password Address Entered Atleast 8 Char</p>
+         }
+    </form>
+</div>
+

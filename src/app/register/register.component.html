@@ -1,0 +1,61 @@
+
+<div class="overall-login">
+
+    <form class="inputs-overall" #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <mat-form-field>
+            <mat-label>FirstName</mat-label>
+            <input matInput class="inputbox"name="FirstName"
+            ngModel
+            required="FirstName"
+            #FirstName="ngModel">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>LastName</mat-label>
+            <input matInput  class="inputbox" name="LastName" ngModel required="LastName" #LastName="ngModel">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput class="inputbox"
+            
+            name="Email"
+            ngModel
+            required="Email"
+            #Email="ngModel">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput type="password"  class="inputbox"
+            name="password"
+            ngModel
+            required="password"
+            #Password="ngModel">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label> Conform Password</mat-label>
+            <input matInput type="password"  class="inputbox"
+            name="Conformpassword"
+            ngModel
+            required="Conformpassword"
+            #ConformPassword="ngModel">
+          </mat-form-field>
+          
+          <button mat-raised-button class="btn">Registered</button>
+          <div class="loginend">
+            <p><a href="/forgot">forgotpassword</a></p>
+            <p> <a href="/">click here to login</a></p>
+           
+          </div>
+
+          @if(FirstName.touched && FirstName.invalid){
+            <p class="invalitedata">firstname is required</p>
+            } @if(LastName.touched && LastName.invalid){
+            <p class="invalitedata">lastname is required</p>
+            } @if(Email.touched && Email.invalid){
+            <p class="invalitedata">email is required</p>
+            } @if(Password.touched && Password.invalid){
+            <p class="invalitedata">password is required</p>
+            } @if(ConformPassword.touched && Password && ConformPassword){
+            <p class="invalitedata">password does not matches</p>
+            }
+        </form>
+</div>
